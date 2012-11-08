@@ -1,5 +1,5 @@
 {
-    "name": "rv/ajax-bundle"
+    "name": "rv/ajax-bundle",
     "type": "ajax-bundle",
     "description": "Useful files for deploying AJAX applications in SF2 environments",
     "keywords": [],
