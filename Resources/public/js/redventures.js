@@ -1,4 +1,3 @@
-
 /**
  * This file provides some basic functionality for communicating with an external request via AJAX
  * and processing a number of various response types
@@ -35,6 +34,20 @@ var RedVentures = {};
 				history.pushState('');
 			}
 		}
+
+		// Form errors
+		$('.control-group.error input, .control-group.error textarea, .control-group.error select').live('focus', function() {
+			$(this).popover({ title: 'Errors', content: $(this).parents('.control-group').find('.field-errors').html(), placement: 'right', trigger: 'manual' }).popover('show');
+		}).live('blur', function() {
+			$(this).popover('destroy');
+		}).live('keydown', function() {
+			$(this).data('value', $(this).val());
+		}).live('keyup change', function() {
+			if ( $(this).data('popover') && $(this).data('value') != $(this).val() ) {
+				$(this).popover('destroy');
+				$(this).parents('.control-group').removeClass('error');
+			}
+		});
 	};
 	
 	/**
